@@ -1,0 +1,17 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-04-01T14:46:41.423389Z",
+    "tools": [
+      {
+        "vendor": "Custom",
+        "name": "SBOM Generator",
+        "version": "1.0"
+      }
+    ]
+  },
+  "components": []
+}
