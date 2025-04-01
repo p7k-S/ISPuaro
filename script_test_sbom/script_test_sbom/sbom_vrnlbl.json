@@ -1,0 +1,19 @@
+{
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.4",
+    "serialNumber": "urn:uuid:2025-04-01T20:37:44.776878",
+    "version": 1,
+    "metadata": {
+        "timestamp": "2025-04-01T20:37:44.776907",
+        "component": {
+            "type": "application",
+            "name": "GCC",
+            "version": "4.1.2",
+            "licenses": [
+                "Unknown"
+            ],
+            "properties": []
+        }
+    },
+    "vulnerabilities": []
+}
