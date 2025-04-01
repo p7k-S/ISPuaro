@@ -1,0 +1,203 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.4.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-04-01T16:51:23.501541Z",
+    "tools": [
+      {
+        "vendor": "Custom SBOM Generator",
+        "name": "GCC Component Analyzer",
+        "version": "1.0"
+      }
+    ],
+    "component": {
+      "type": "framework",
+      "name": "GCC Toolchain",
+      "version": "4.1.2",
+      "description": "GNU Compiler Collection (Debian 4.1.1-21)",
+      "purl": "pkg:deb/debian/gcc@4.1.2",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "2f9234de2c9721e1caa25561137e6afc212459ff"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0-or-later"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "name": "binary1",
+      "description": "GCC Compiler",
+      "version": "4.1.2",
+      "purl": "pkg:deb/debian/gcc-compiler@4.1.2?arch=x86_64",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "2f9234de2c9721e1caa25561137e6afc212459ff"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binary2",
+      "description": "GCC Preprocessor",
+      "version": "4.1.2",
+      "purl": "pkg:deb/debian/gcc-preprocessor@4.1.2?arch=x86_64",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "fc5f4b99ea402ccb8d6df5084f2e0c0445236103"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binary3",
+      "description": "GCC Archiver (ar)",
+      "version": "4.1.2",
+      "purl": "pkg:deb/debian/gcc-ar@4.1.2?arch=x86_64",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "09b7bd3b80021d7a2292cd0b1c0cd7f15e99223b"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binary5",
+      "description": "GCC Linker (1)",
+      "version": "4.1.2",
+      "purl": "pkg:deb/debian/gcc-linker@4.1.2?arch=x86_64",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "9c9a3be646dcc7bb7b800734b851a42f9407a990"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binary6",
+      "description": "GCC Linker (2)",
+      "version": "4.1.2",
+      "purl": "pkg:deb/debian/gcc-linker-2@4.1.2?arch=x86_64",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "dd6f4f1c75d6d8336779e9b3bbf0f375a597e925"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "binary7",
+      "description": "GCC Fortran Compiler",
+      "version": "4.1.2",
+      "purl": "pkg:deb/debian/gcc-fortran@4.1.2?arch=x86_64",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "8de06b21c3b675586a7933745c7705e1fc0ae097"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "libc.so.6",
+      "version": "2.31",
+      "purl": "pkg:deb/debian/glibc@2.31?arch=amd64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a1b2c3d4e5f67890a1b2c3d4e5f67890a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-2.1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "libz.so.1",
+      "version": "1.2.11",
+      "purl": "pkg:deb/debian/zlib@1.2.11?arch=amd64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Zlib"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ld-linux-x86-64.so.2",
+      "version": "2.31",
+      "purl": "pkg:deb/debian/glibc@2.31?arch=amd64&file=ld-linux-x86-64.so.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-2.1"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "binary1",
+      "dependsOn": ["libc.so.6", "ld-linux-x86-64.so.2"]
+    },
+    {
+      "ref": "binary2",
+      "dependsOn": ["libc.so.6", "ld-linux-x86-64.so.2"]
+    },
+    {
+      "ref": "binary3",
+      "dependsOn": ["libz.so.1", "libc.so.6", "ld-linux-x86-64.so.2"]
+    },
+    {
+      "ref": "binary5",
+      "dependsOn": ["libc.so.6", "ld-linux-x86-64.so.2"]
+    },
+    {
+      "ref": "binary6",
+      "dependsOn": ["libc.so.6", "ld-linux-x86-64.so.2"]
+    },
+    {
+      "ref": "binary7",
+      "dependsOn": ["libc.so.6", "ld-linux-x86-64.so.2"]
+    },
+    {
+      "ref": "libz.so.1",
+      "dependsOn": ["libc.so.6"]
+    }
+  ]
+}
