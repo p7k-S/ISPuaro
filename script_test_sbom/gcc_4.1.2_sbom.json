@@ -1,286 +1,352 @@
 {
-  "$schema": "http://cyclonedx.org/schema/bom-1.4.schema.json",
-  "bomFormat": "CycloneDX",
-  "specVersion": "1.4",
-  "version": 1,
-  "metadata": {
-    "timestamp": "2025-04-01T16:51:23.501541Z",
-    "tools": [
-      {
-        "vendor": "Custom SBOM Generator",
-        "name": "GCC Component Analyzer",
-        "version": "1.0"
-      }
+    "$schema": "http://cyclonedx.org/schema/bom-1.4.schema.json",
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.4",
+    "version": 1,
+    "metadata": {
+        "timestamp": "2025-04-01T21:28:40.784650Z",
+        "tools": [
+            {
+                "vendor": "Custom SBOM Generator",
+                "name": "GCC Component Analyzer",
+                "version": "1.0"
+            }
+        ],
+        "component": {
+            "type": "framework",
+            "name": "GCC Toolchain",
+            "version": "4.1.2",
+            "description": "GNU Compiler Collection (Debian 4.1.1-21)",
+            "purl": "pkg:deb/debian/gcc@4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "2f9234de2c9721e1caa25561137e6afc212459ff"
+                }
+            ]
+        }
+    },
+    "components": [
+        {
+            "type": "application",
+            "name": "binary1",
+            "description": "GCC Compiler",
+            "version": "4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "2f9234de2c9721e1caa25561137e6afc212459ff"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "binary:analysis:method",
+                    "value": "ida-9.0.2409522"
+                },
+                {
+                    "name": "file binary1",
+                    "value": "binary1: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
+                },
+                {
+                    "name": "binary1 --version",
+                    "value": "Error: /bin/sh: 1: binary1: not found\n"
+                },
+                {
+                    "name": "ldd binary1",
+                    "value": "linux-vdso.so.1 (0x00007fd809016000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007fd808e14000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007fd809018000)"
+                },
+                {
+                    "name": "readelf -d binary1 | grep NEEDED",
+                    "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
+                }
+            ]
+        },
+        {
+            "type": "application",
+            "name": "binary2",
+            "description": "GCC Preprocessor",
+            "version": "4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "fc5f4b99ea402ccb8d6df5084f2e0c0445236103"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "file binary2",
+                    "value": "binary2: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
+                },
+                {
+                    "name": "binary2 --version",
+                    "value": "Error: /bin/sh: 1: binary2: not found\n"
+                },
+                {
+                    "name": "ldd binary2",
+                    "value": "linux-vdso.so.1 (0x00007fe1ed946000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007fe1ed744000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007fe1ed948000)"
+                },
+                {
+                    "name": "readelf -d binary2 | grep NEEDED",
+                    "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
+                }
+            ]
+        },
+        {
+            "type": "application",
+            "name": "binary3",
+            "description": "GCC Archiver (ar)",
+            "version": "4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "09b7bd3b80021d7a2292cd0b1c0cd7f15e99223b"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "file binary3",
+                    "value": "binary3: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
+                },
+                {
+                    "name": "binary3 --version",
+                    "value": "Error: /bin/sh: 1: binary3: not found\n"
+                },
+                {
+                    "name": "ldd binary3",
+                    "value": "linux-vdso.so.1 (0x00007ff784a80000)\n\tlibz.so.1 => /usr/lib/libz.so.1 (0x00007ff784a4e000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007ff784864000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007ff784a82000)"
+                },
+                {
+                    "name": "readelf -d binary3 | grep NEEDED",
+                    "value": "0x0000000000000001 (NEEDED)             Shared library: [libz.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
+                }
+            ]
+        },
+        {
+            "type": "application",
+            "name": "binary5",
+            "description": "GCC Linker (1)",
+            "version": "4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "9c9a3be646dcc7bb7b800734b851a42f9407a990"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "file binary5",
+                    "value": "binary5: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
+                },
+                {
+                    "name": "binary5 --version",
+                    "value": "Error: /bin/sh: 1: binary5: not found\n"
+                },
+                {
+                    "name": "ldd binary5",
+                    "value": "linux-vdso.so.1 (0x00007f91ba515000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f91ba313000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f91ba517000)"
+                },
+                {
+                    "name": "readelf -d binary5 | grep NEEDED",
+                    "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
+                }
+            ]
+        },
+        {
+            "type": "application",
+            "name": "binary6",
+            "description": "GCC Linker (2)",
+            "version": "4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "dd6f4f1c75d6d8336779e9b3bbf0f375a597e925"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "file binary6",
+                    "value": "binary6: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
+                },
+                {
+                    "name": "binary6 --version",
+                    "value": "Error: /bin/sh: 1: binary6: not found\n"
+                },
+                {
+                    "name": "ldd binary6",
+                    "value": "linux-vdso.so.1 (0x00007fb27ed86000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007fb27eb84000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007fb27ed88000)"
+                },
+                {
+                    "name": "readelf -d binary6 | grep NEEDED",
+                    "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
+                }
+            ]
+        },
+        {
+            "type": "application",
+            "name": "binary7",
+            "description": "Fortran Compiler",
+            "version": "4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "8de06b21c3b675586a7933745c7705e1fc0ae097"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "file binary7",
+                    "value": "binary7: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
+                },
+                {
+                    "name": "binary7 --version",
+                    "value": "Error: /bin/sh: 1: binary7: not found\n"
+                },
+                {
+                    "name": "ldd binary7",
+                    "value": "linux-vdso.so.1 (0x00007f3c159c7000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f3c157c5000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f3c159c9000)"
+                },
+                {
+                    "name": "readelf -d binary7 | grep NEEDED",
+                    "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
+                }
+            ]
+        },
+        {
+            "type": "application",
+            "name": "binary8",
+            "description": "Fortran Dynamic Library",
+            "version": "4.1.2",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "e2b58cd939743bb96562cf56512b102ec0057f20"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "file binary8",
+                    "value": "binary8: ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, stripped"
+                },
+                {
+                    "name": "binary8 --version",
+                    "value": "Error: /bin/sh: 1: binary8: not found\n"
+                },
+                {
+                    "name": "ldd binary8",
+                    "value": "Error: \tnot a dynamic executable\n"
+                },
+                {
+                    "name": "readelf -d binary8 | grep NEEDED",
+                    "value": "0x00000001 (NEEDED)                     Shared library: [libm.so.6]\n 0x00000001 (NEEDED)                     Shared library: [libc.so.6]"
+                }
+            ]
+        }
     ],
-    "component": {
-      "type": "framework",
-      "name": "GCC Toolchain",
-      "version": "4.1.2",
-      "description": "GNU Compiler Collection (Debian 4.1.1-21)",
-      "purl": "pkg:deb/debian/gcc@4.1.2",
-      "hashes": [
+    "dependencies": [
         {
-          "alg": "SHA-1",
-          "content": "2f9234de2c9721e1caa25561137e6afc212459ff"
+            "ref": "binary1",
+            "dependsOn": [
+                "libc.so.6",
+                "/lib64/ld-linux-x86-64.so.2"
+            ]
+        },
+        {
+            "ref": "binary2",
+            "dependsOn": [
+                "libc.so.6",
+                "/lib64/ld-linux-x86-64.so.2"
+            ]
+        },
+        {
+            "ref": "binary3",
+            "dependsOn": [
+                "libz.so.1",
+                "libc.so.6",
+                "/lib64/ld-linux-x86-64.so.2"
+            ]
+        },
+        {
+            "ref": "binary5",
+            "dependsOn": [
+                "libc.so.6",
+                "/lib64/ld-linux-x86-64.so.2"
+            ]
+        },
+        {
+            "ref": "binary6",
+            "dependsOn": [
+                "libc.so.6",
+                "/lib64/ld-linux-x86-64.so.2"
+            ]
+        },
+        {
+            "ref": "binary7",
+            "dependsOn": [
+                "libc.so.6",
+                "/lib64/ld-linux-x86-64.so.2"
+            ]
+        },
+        {
+            "ref": "libz.so.1",
+            "dependsOn": [
+                "libc.so.6"
+            ]
         }
-      ]
-    }
-  },
-  "components": [
-    {
-      "type": "application",
-      "name": "binary1",
-      "description": "GCC Compiler",
-      "version": "4.1.2",
-      "hashes": [
+    ],
+    "vulnerabilities": [
         {
-          "alg": "SHA-1",
-          "content": "2f9234de2c9721e1caa25561137e6afc212459ff"
+            "id": "CVE-2015-5276",
+            "description": "The std::random_device class in libstdc++ in the GNU Compiler Collection (aka GCC) before 4.9.4 does not properly handle short reads from blocking sources, which makes it easier for context-dependent attackers to predict the random values via unspecified vectors.",
+            "published": "2015-11-17T15:59:04.357",
+            "source": {
+                "name": "NVD",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-5276"
+            }
+        },
+        {
+            "id": "CVE-2018-12886",
+            "description": "stack_protect_prologue in cfgexpand.c and stack_protect_epilogue in function.c in GNU Compiler Collection (GCC) 4.1 through 8 (under certain circumstances) generate instruction sequences when targeting ARM targets that spill the address of the stack protector guard, which allows an attacker to bypass the protection of -fstack-protector, -fstack-protector-all, -fstack-protector-strong, and -fstack-protector-explicit against stack overflow by controlling what the stack canary is compared against.",
+            "published": "2019-05-22T19:29:00.297",
+            "source": {
+                "name": "NVD",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-12886"
+            }
+        },
+        {
+            "id": "CVE-2019-15847",
+            "description": "The POWER9 backend in GNU Compiler Collection (GCC) before version 10 could optimize multiple calls of the __builtin_darn intrinsic into a single call, thus reducing the entropy of the random number generator. This occurred because a volatile operation was not specified. For example, within a single execution of a program, the output of every __builtin_darn() call may be the same.",
+            "published": "2019-09-02T23:15:10.837",
+            "source": {
+                "name": "NVD",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-15847"
+            }
+        },
+        {
+            "id": "CVE-2002-2439",
+            "description": "Integer overflow in the new[] operator in gcc before 4.8.0 allows attackers to have unspecified impacts.",
+            "published": "2019-10-23T18:15:11.007",
+            "source": {
+                "name": "NVD",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2002-2439"
+            }
+        },
+        {
+            "id": "CVE-2021-37322",
+            "description": "GCC c++filt v2.26 was discovered to contain a use-after-free vulnerability via the component cplus-dem.c.",
+            "published": "2021-11-18T22:15:07.600",
+            "source": {
+                "name": "NVD",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-37322"
+            }
+        },
+        {
+            "id": "CVE-2023-4039",
+            "description": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+            "published": "2023-09-13T09:15:15.690",
+            "source": {
+                "name": "NVD",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4039"
+            }
         }
-      ],
-      "properties": [
-        {
-          "name": "file binary1",
-          "value": "binary1: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
-        },
-        {
-          "name": "binary1 --version",
-          "value": "Error: /bin/sh: 1: binary1: not found\n"
-        },
-        {
-          "name": "ldd binary1",
-          "value": "linux-vdso.so.1 (0x00007f9255ec6000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f9255cc4000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f9255ec8000)"
-        },
-        {
-          "name": "readelf -d binary1 | grep NEEDED",
-          "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
-        }
-      ]
-    },
-    {
-      "type": "application",
-      "name": "binary2",
-      "description": "GCC Preprocessor",
-      "version": "4.1.2",
-      "hashes": [
-        {
-          "alg": "SHA-1",
-          "content": "fc5f4b99ea402ccb8d6df5084f2e0c0445236103"
-        }
-      ],
-      "properties": [
-        {
-          "name": "file binary2",
-          "value": "binary2: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
-        },
-        {
-          "name": "binary2 --version",
-          "value": "Error: /bin/sh: 1: binary2: not found\n"
-        },
-        {
-          "name": "ldd binary2",
-          "value": "linux-vdso.so.1 (0x00007f6f4f5b1000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f6f4f3af000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f6f4f5b3000)"
-        },
-        {
-          "name": "readelf -d binary2 | grep NEEDED",
-          "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
-        }
-      ]
-    },
-    {
-      "type": "application",
-      "name": "binary3",
-      "description": "GCC Archiver (ar)",
-      "version": "4.1.2",
-      "hashes": [
-        {
-          "alg": "SHA-1",
-          "content": "09b7bd3b80021d7a2292cd0b1c0cd7f15e99223b"
-        }
-      ],
-      "properties": [
-        {
-          "name": "file binary3",
-          "value": "binary3: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
-        },
-        {
-          "name": "binary3 --version",
-          "value": "Error: /bin/sh: 1: binary3: not found\n"
-        },
-        {
-          "name": "ldd binary3",
-          "value": "linux-vdso.so.1 (0x00007efdc2670000)\n\tlibz.so.1 => /usr/lib/libz.so.1 (0x00007efdc263e000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007efdc2454000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007efdc2672000)"
-        },
-        {
-          "name": "readelf -d binary3 | grep NEEDED",
-          "value": "0x0000000000000001 (NEEDED)             Shared library: [libz.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
-        }
-      ]
-    },
-    {
-      "type": "application",
-      "name": "binary5",
-      "description": "GCC Linker (1)",
-      "version": "4.1.2",
-      "hashes": [
-        {
-          "alg": "SHA-1",
-          "content": "9c9a3be646dcc7bb7b800734b851a42f9407a990"
-        }
-      ],
-      "properties": [
-        {
-          "name": "file binary5",
-          "value": "binary5: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
-        },
-        {
-          "name": "binary5 --version",
-          "value": "Error: /bin/sh: 1: binary5: not found\n"
-        },
-        {
-          "name": "ldd binary5",
-          "value": "linux-vdso.so.1 (0x00007f91fb31e000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f91fb11c000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f91fb320000)"
-        },
-        {
-          "name": "readelf -d binary5 | grep NEEDED",
-          "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
-        }
-      ]
-    },
-    {
-      "type": "application",
-      "name": "binary6",
-      "description": "GCC Linker (2)",
-      "version": "4.1.2",
-      "hashes": [
-        {
-          "alg": "SHA-1",
-          "content": "dd6f4f1c75d6d8336779e9b3bbf0f375a597e925"
-        }
-      ],
-      "properties": [
-        {
-          "name": "file binary6",
-          "value": "binary6: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
-        },
-        {
-          "name": "binary6 --version",
-          "value": "Error: /bin/sh: 1: binary6: not found\n"
-        },
-        {
-          "name": "ldd binary6",
-          "value": "linux-vdso.so.1 (0x00007f960c5f3000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f960c3f1000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f960c5f5000)"
-        },
-        {
-          "name": "readelf -d binary6 | grep NEEDED",
-          "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
-        }
-      ]
-    },
-    {
-      "type": "application",
-      "name": "binary7",
-      "description": "GCC Fortran Compiler",
-      "version": "4.1.2",
-      "hashes": [
-        {
-          "alg": "SHA-1",
-          "content": "8de06b21c3b675586a7933745c7705e1fc0ae097"
-        }
-      ],
-      "properties": [
-        {
-          "name": "file binary7",
-          "value": "binary7: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.0, stripped"
-        },
-        {
-          "name": "binary7 --version",
-          "value": "Error: /bin/sh: 1: binary7: not found\n"
-        },
-        {
-          "name": "ldd binary7",
-          "value": "linux-vdso.so.1 (0x00007f3f7c54c000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f3f7c34a000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f3f7c54e000)"
-        },
-        {
-          "name": "readelf -d binary7 | grep NEEDED",
-          "value": "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
-        }
-      ]
-    },
-    {
-      "type": "application",
-      "name": "binary8",
-      "description": "Fortran Dynamic Library",
-      "version": "4.1.2",
-      "hashes": [
-        {
-          "alg": "SHA-1",
-          "content": "e2b58cd939743bb96562cf56512b102ec0057f20"
-        }
-      ],
-      "properties": [
-        {
-          "name": "file binary8",
-          "value": "binary8: ELF 32-bit LSB shared object, Intel 80386, version 1 (SYSV), dynamically linked, stripped"
-        },
-        {
-          "name": "binary8 --version",
-          "value": "Error: /bin/sh: 1: binary8: not found\n"
-        },
-        {
-          "name": "ldd binary8",
-          "value": "Error: ldd: warning: you do not have execution permission for `./binary8'\n\tnot a dynamic executable\n"
-        },
-        {
-          "name": "readelf -d binary8 | grep NEEDED",
-          "value": "0x00000001 (NEEDED)                     Shared library: [libm.so.6]\n 0x00000001 (NEEDED)                     Shared library: [libc.so.6]"
-        }
-      ]
-    }
-  ],
-  "dependencies": [
-    {
-      "ref": "binary1",
-      "dependsOn": [
-        "libc.so.6",
-        "/lib64/ld-linux-x86-64.so.2"
-      ]
-    },
-    {
-      "ref": "binary2",
-      "dependsOn": [
-        "libc.so.6",
-        "/lib64/ld-linux-x86-64.so.2"
-      ]
-    },
-    {
-      "ref": "binary3",
-      "dependsOn": [
-        "libz.so.1",
-        "libc.so.6",
-        "/lib64/ld-linux-x86-64.so.2"
-      ]
-    },
-    {
-      "ref": "binary5",
-      "dependsOn": [
-        "libc.so.6",
-        "/lib64/ld-linux-x86-64.so.2"
-      ]
-    },
-    {
-      "ref": "binary6",
-      "dependsOn": [
-        "libc.so.6",
-        "/lib64/ld-linux-x86-64.so.2"
-      ]
-    },
-    {
-      "ref": "binary7",
-      "dependsOn": [
-        "libc.so.6",
-        "/lib64/ld-linux-x86-64.so.2"
-      ]
-    }
-  ]
+    ]
 }

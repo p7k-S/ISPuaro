@@ -109,7 +109,7 @@ def main():
         ("binary3", "GCC Archiver (ar)"),
         ("binary5", "GCC Linker (1)"),
         ("binary6", "GCC Linker (2)"),
-        ("binary7", "GCC Fortran Compiler"),
+        ("binary7", "Fortran Compiler"),
         ("binary8", "Fortran Dynamic Library")
     ]
 
