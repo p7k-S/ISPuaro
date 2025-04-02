@@ -63,9 +63,7 @@ def main():
     
     for file in files:
         try:
-            print(f"Analyzing file: {file}")
             analyze_file(file, info_dir)
-            print(f"Analysis saved to: info/{file}_analysis.txt")
         except Exception as e:
             print(f"Failed to analyze file {file}: {str(e)}")
 
@@ -77,4 +75,3 @@ if __name__ == "__main__":
 # syft . -o cyclonedx-json > sbom.json
 # jq . sbom.json > sbom_formatted.json
 # trivy fs --scanners vuln . -- 0 ??
-
