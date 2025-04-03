@@ -1,0 +1,428 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-04-03T17:04:58.283696Z",
+    "tools": [
+      {
+        "vendor": "Custom SBOM Generator",
+        "name": "GCC Component Analyzer",
+        "version": "1.0"
+      }
+    ],
+    "component": {
+      "type": "framework",
+      "name": "GCC Toolchain",
+      "version": "4.1.2",
+      "description": "GNU Compiler Collection (Debian 4.1.1-21)",
+      "purl": "pkg:deb/debian/gcc@4.1.2"
+    },
+    "platform": {
+      "name": "x86_64-linux-gnu",
+      "architecture": "x86_64",
+      "operatingSystem": "Linux"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2bc75fa5ad779c5329d271546bcf9f65",
+      "type": "unknown",
+      "name": "binary1",
+      "version": "4.1.2",
+      "description": "cc1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cff76eabdfd69d50619ec545336100bd0ee34fb06fd1521bf7add24441538eec"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
+      "bom-ref": "009a09df458d78514d3f7324b74da26c",
+      "type": "library",
+      "name": "libc.so.6",
+      "version": "4.1.2",
+      "description": "",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0a9b2caddb50efc253c8f8c7654fb9e4c92616795cd639da47c9fa187712fb82"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "False"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "bom-ref": "786209f5ea18ea186d34979aa51f3343",
+      "type": "library",
+      "name": "ld-linux-x86-64.so.2",
+      "version": "4.1.2",
+      "description": "",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3de1a7e0e48e61d74eb7d2bddce030c589cc46054c72e89509f1a94492ef4157"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "False"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "False"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "bom-ref": "2f25beac43c57116de46e227db57d08b",
+      "type": "unknown",
+      "name": "binary2",
+      "version": "4.1.2",
+      "description": "cpp",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0028b9e6c05bdcc2ee53d566663258a2606c4e6bbca3dae1208a7fd5fc88b1ca"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
+      "bom-ref": "ca21ec459bc61bf3f37b802de95643b5",
+      "type": "unknown",
+      "name": "binary3",
+      "version": "4.1.2",
+      "description": "ar",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b00966d6d9dd51c0b45f1bf0e5adbd0a2dbe18f440b1376948949a074f0f3db1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "a472f69d270ee71120f52afd509771bc",
+          "name": "/lib/libz.so.1"
+        },
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a472f69d270ee71120f52afd509771bc",
+      "type": "library",
+      "name": "libz.so.1",
+      "version": "4.1.2",
+      "description": "",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dab04e1d9a6ac1128d185dba52e1fa521f77640d78641649e511035ac7765958"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "Intel 80386"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "False"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
+        }
+      ]
+    },
+    {
+      "bom-ref": "9d7a37a8d8926db082066c37ff6852fc",
+      "type": "unknown",
+      "name": "binary5",
+      "version": "4.1.2",
+      "description": "g++",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c3790e2a4a23b7afbf52164b5f0464a61daf71d8363831d0f8ce0c6b0e8cedb0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
+      "bom-ref": "146b59f46d09b9234d28aa1db18a8e88",
+      "type": "unknown",
+      "name": "binary6",
+      "version": "4.1.2",
+      "description": "gcc",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8858bf9d38bb5b77da0298caaba692c4fce468fd13a2862e4660c765b9e8aa16"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
+      "bom-ref": "40aa837904b50328ebbf3a3380e966dc",
+      "type": "unknown",
+      "name": "binary7",
+      "version": "4.1.2",
+      "description": "gfortran",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "787ec1b90fb69ba3e9ee678f544d448034daa1727b929e67a1cc21f8613465c3"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
+      "bom-ref": "26baa7feee82f39e2738cfe1f603d776",
+      "type": "library",
+      "name": "binary8",
+      "version": "4.1.2",
+      "description": "libgfortran.so",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "03feea779592f23c2c8e41310d9c7783d6c4a2592fa0bee6027d0f55ad2df7f7"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "Intel 80386"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": []
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "CVE-2015-5276",
+      "description": "The std::random_device class in libstdc++ in the GNU Compiler Collection (aka GCC) before 4.9.4 does not properly handle short reads from blocking sources, which makes it easier for context-dependent attackers to predict the random values via unspecified vectors.",
+      "published": "2015-11-17T15:59:04.357",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-5276"
+      }
+    },
+    {
+      "id": "CVE-2018-12886",
+      "description": "stack_protect_prologue in cfgexpand.c and stack_protect_epilogue in function.c in GNU Compiler Collection (GCC) 4.1 through 8 (under certain circumstances) generate instruction sequences when targeting ARM targets that spill the address of the stack protector guard, which allows an attacker to bypass the protection of -fstack-protector, -fstack-protector-all, -fstack-protector-strong, and -fstack-protector-explicit against stack overflow by controlling what the stack canary is compared against.",
+      "published": "2019-05-22T19:29:00.297",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-12886"
+      }
+    },
+    {
+      "id": "CVE-2019-15847",
+      "description": "The POWER9 backend in GNU Compiler Collection (GCC) before version 10 could optimize multiple calls of the __builtin_darn intrinsic into a single call, thus reducing the entropy of the random number generator. This occurred because a volatile operation was not specified. For example, within a single execution of a program, the output of every __builtin_darn() call may be the same.",
+      "published": "2019-09-02T23:15:10.837",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-15847"
+      }
+    },
+    {
+      "id": "CVE-2002-2439",
+      "description": "Integer overflow in the new[] operator in gcc before 4.8.0 allows attackers to have unspecified impacts.",
+      "published": "2019-10-23T18:15:11.007",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2002-2439"
+      }
+    },
+    {
+      "id": "CVE-2021-37322",
+      "description": "GCC c++filt v2.26 was discovered to contain a use-after-free vulnerability via the component cplus-dem.c.",
+      "published": "2021-11-18T22:15:07.600",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-37322"
+      }
+    },
+    {
+      "id": "CVE-2023-4039",
+      "description": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
+      "published": "2023-09-13T09:15:15.690",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4039"
+      }
+    }
+  ]
+}
