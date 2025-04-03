@@ -15,6 +15,8 @@ binary_descriptions = {
     "binary8": "libgfortran.so"
 }
 
+SYSTEM_LIB_DIRS = ["/lib", "/usr/lib", "/lib64", "/usr/lib64"]  # Системные директории для поиска библиотек
+
 def run_file_command(file_path):
     try:
         result = subprocess.run(['file', file_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -24,15 +26,15 @@ def run_file_command(file_path):
 
 def parse_file_output(file_output):
     architecture = "Intel 80386"
-    strip = "False"
+    strip = "True"
     dynamically_linked = "False"
     
     if "x86-64" in file_output:
         architecture = "x86_64"
     if "dynamically linked" in file_output:
         dynamically_linked = "True"
-    if "stripped" in file_output:
-        strip = "True"
+    if "not stripped" in file_output:
+        strip = "False"
     
     return architecture, strip, dynamically_linked
 
@@ -48,7 +50,9 @@ def get_file_properties(file_path):
 
 def get_component_type(file_name):
     file_extension = os.path.splitext(file_name)[1].lower()
-    if file_extension in [".so", ".a", ".dll"]:
+    if file_extension.startswith(".so"):
+        return "library"
+    elif file_extension in [".a", ".dll"]:
         return "library"
     return "application"
 
@@ -63,7 +67,7 @@ def generate_bom_ref(file_path):
     return hashlib.md5(file_path.encode('utf-8')).hexdigest()
 
 def get_description(file_name):
-    return binary_descriptions.get(file_name, "unknown")
+    return binary_descriptions.get(file_name, "")
 
 def run_ldd(file_path):
     try:
@@ -78,7 +82,19 @@ def extract_dependencies(ldd_output):
         if '=>' in line:
             parts = line.split('=>')
             lib = parts[0].strip()
-            dependencies.append(lib)
+            # Если библиотека указана без полного пути, пытаемся найти ее в системных путях
+            if not os.path.isabs(lib):
+                found = False
+                for dir in SYSTEM_LIB_DIRS:
+                    lib_path = os.path.join(dir, lib)
+                    if os.path.exists(lib_path):
+                        dependencies.append(lib_path)
+                        found = True
+                        break
+                if not found:
+                    dependencies.append(lib)  # Оставляем зависимость как есть, если не нашли
+            else:
+                dependencies.append(lib)
     return dependencies
 
 def fetch_vulnerabilities():
@@ -99,26 +115,46 @@ def fetch_vulnerabilities():
             })
     return vulnerabilities
 
+def process_file(file_path, visited_files):
+    if file_path in visited_files:
+        return []
+
+    visited_files.add(file_path)
+    ldd_output = run_ldd(file_path)
+    dependencies = extract_dependencies(ldd_output)
+    
+    component = {
+        "bom-ref": generate_bom_ref(file_path),
+        "type": get_component_type(os.path.basename(file_path)),
+        "name": os.path.basename(file_path),  # Оставляем только имя файла
+        # "name": file_path,  # Указываем полный путь к файлу
+        "version": "4.1.2",
+        "description": get_description(os.path.basename(file_path)),  # Получаем описание из binary_descriptions
+        "hashes": [{"alg": "SHA-256", "content": compute_sha256(file_path)}],
+        "properties": get_file_properties(file_path),
+        "dependencies": [{"ref": generate_bom_ref(dep.strip()), "name": dep.strip()} for dep in dependencies]  # Добавлено имя
+    }
+    
+    components = [component]
+
+    # Рекурсивно анализируем зависимости
+    for dep in dependencies:
+        dep_file_path = dep.strip()
+        if os.path.exists(dep_file_path):
+            components.extend(process_file(dep_file_path, visited_files))
+    
+    return components
+
 def process_files_in_directory(directory_path):
     components = []
+    visited_files = set()
+
     for root, dirs, files in os.walk(directory_path):
         files.sort()
         for file_name in files:
             file_path = os.path.join(root, file_name)
-            ldd_output = run_ldd(file_path)
-            dependencies = extract_dependencies(ldd_output)
-            
-            component = {
-                "bom-ref": generate_bom_ref(file_path),
-                "type": get_component_type(get_description(file_name)),
-                "name": file_name,
-                "version": "4.1.2",
-                "description": get_description(file_name),
-                "hashes": [{"alg": "SHA-256", "content": compute_sha256(file_path)}],
-                "properties": get_file_properties(file_path),
-                "dependencies": [{"ref": dep} for dep in dependencies]
-            }
-            components.append(component)
+            if file_path not in visited_files:
+                components.extend(process_file(file_path, visited_files))
     
     sbom = {
         "bomFormat": "CycloneDX",
@@ -144,4 +180,3 @@ if __name__ == "__main__":
     sbom = process_files_in_directory(directory_path)
     save_sbom_to_file(sbom, "sbom.json")
     print("SBOM записан в файл sbom.json")
-
