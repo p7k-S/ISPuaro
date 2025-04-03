@@ -1,0 +1,206 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "components": [
+    {
+      "bom-ref": "2bc75fa5ad779c5329d271546bcf9f65",
+      "type": "library",
+      "name": "binary1",
+      "version": "4.1.2",
+      "description": "cc1",
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "3cd5dd33c6e5751a42fbdece4c763267"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343"
+        }
+      ]
+    },
+    {
+      "bom-ref": "2f25beac43c57116de46e227db57d08b",
+      "type": "library",
+      "name": "binary2",
+      "version": "4.1.2",
+      "description": "cpp",
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "3cd5dd33c6e5751a42fbdece4c763267"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343"
+        }
+      ]
+    },
+    {
+      "bom-ref": "ca21ec459bc61bf3f37b802de95643b5",
+      "type": "library",
+      "name": "binary3",
+      "version": "4.1.2",
+      "description": "ar",
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "b4b3a2605889934f49dee4f236c74a65"
+        },
+        {
+          "ref": "3cd5dd33c6e5751a42fbdece4c763267"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343"
+        }
+      ]
+    },
+    {
+      "bom-ref": "9d7a37a8d8926db082066c37ff6852fc",
+      "type": "library",
+      "name": "binary5",
+      "version": "4.1.2",
+      "description": "g++",
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "3cd5dd33c6e5751a42fbdece4c763267"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343"
+        }
+      ]
+    },
+    {
+      "bom-ref": "146b59f46d09b9234d28aa1db18a8e88",
+      "type": "library",
+      "name": "binary6",
+      "version": "4.1.2",
+      "description": "gcc",
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "3cd5dd33c6e5751a42fbdece4c763267"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343"
+        }
+      ]
+    },
+    {
+      "bom-ref": "40aa837904b50328ebbf3a3380e966dc",
+      "type": "library",
+      "name": "binary7",
+      "version": "4.1.2",
+      "description": "gfortran",
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "3cd5dd33c6e5751a42fbdece4c763267"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343"
+        }
+      ]
+    },
+    {
+      "bom-ref": "26baa7feee82f39e2738cfe1f603d776",
+      "type": "library",
+      "name": "binary8",
+      "version": "4.1.2",
+      "description": "libgfortran.so",
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "Intel 80386"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": []
+    }
+  ]
+}
