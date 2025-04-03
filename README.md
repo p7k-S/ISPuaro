@@ -1,5 +1,6 @@
 # 🛠️ ISPuaro 
 **Анализ бинарных файлов | Генерация SBOM | Визуализация графа компонент**
+Готовые sbom.json и sbom_graph.png лежат в info 
 
 ## 📋 Требования  
 - Python 3.8+
@@ -16,7 +17,7 @@ python gen_sbom.py             #генерация SBOM
 python graphviz.py sbom.json   #создает .dot файл для графа компонент
 dot -Tpng sbom_graph.dot -o sbom_graph.png
 ```
-в ISPuaro/scripts/ будет лежать sbom.json и sbom_graph.png
+сгенерированные sbom.json и sbom_graph.png будет лежать в ISPuaro/scripts/
 
 
 ## 📌 Описание скриптов
