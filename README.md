@@ -17,7 +17,7 @@ python gen_sbom.py             #генерация SBOM
 python graphviz.py sbom.json   #создает .dot файл для графа компонент
 dot -Tpng sbom_graph.dot -o sbom_graph.png
 ```
-новые сгенерированные sbom.json и sbom_graph.png будет лежать в scripts/
+новые сгенерированные sbom.json и sbom_graph.png будут лежать в scripts/
 
 
 ## 📌 Описание скриптов
