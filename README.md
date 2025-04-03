@@ -6,6 +6,7 @@
 
 ## 🚀 Быстрый старт  
 ```bash
+git clone https://github.com/p7k-S/ISPuaro/
 cd ISPuaro/scripts/
 python info                    #базовый анализ всех бинарников -> ISPuaro/info/
 python gen_sbom.py             #генерация SBOM
