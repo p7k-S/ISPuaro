@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-03T13:11:45.615902Z",
+    "timestamp": "2025-04-03T16:21:41.524641Z",
     "tools": [
       {
         "vendor": "Custom SBOM Generator",
@@ -27,7 +27,7 @@
   "components": [
     {
       "bom-ref": "2bc75fa5ad779c5329d271546bcf9f65",
-      "type": "application",
+      "type": "unknown",
       "name": "binary1",
       "version": "4.1.2",
       "description": "cc1",
@@ -53,16 +53,74 @@
       ],
       "dependencies": [
         {
-          "ref": "libc.so.6"
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
         },
         {
-          "ref": "/lib64/ld-linux-x86-64.so.2"
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
+      "bom-ref": "009a09df458d78514d3f7324b74da26c",
+      "type": "library",
+      "name": "libc.so.6",
+      "version": "4.1.2",
+      "description": "",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0a9b2caddb50efc253c8f8c7654fb9e4c92616795cd639da47c9fa187712fb82"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "False"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "bom-ref": "786209f5ea18ea186d34979aa51f3343",
+      "type": "library",
+      "name": "ld-linux-x86-64.so.2",
+      "version": "4.1.2",
+      "description": "",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3de1a7e0e48e61d74eb7d2bddce030c589cc46054c72e89509f1a94492ef4157"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "False"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "False"
+        }
+      ],
+      "dependencies": []
+    },
+    {
       "bom-ref": "2f25beac43c57116de46e227db57d08b",
-      "type": "application",
+      "type": "unknown",
       "name": "binary2",
       "version": "4.1.2",
       "description": "cpp",
@@ -88,16 +146,18 @@
       ],
       "dependencies": [
         {
-          "ref": "libc.so.6"
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
         },
         {
-          "ref": "/lib64/ld-linux-x86-64.so.2"
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
       "bom-ref": "ca21ec459bc61bf3f37b802de95643b5",
-      "type": "application",
+      "type": "unknown",
       "name": "binary3",
       "version": "4.1.2",
       "description": "ar",
@@ -123,19 +183,55 @@
       ],
       "dependencies": [
         {
-          "ref": "libz.so.1"
+          "ref": "a472f69d270ee71120f52afd509771bc",
+          "name": "/lib/libz.so.1"
         },
         {
-          "ref": "libc.so.6"
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
         },
         {
-          "ref": "/lib64/ld-linux-x86-64.so.2"
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a472f69d270ee71120f52afd509771bc",
+      "type": "library",
+      "name": "libz.so.1",
+      "version": "4.1.2",
+      "description": "",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dab04e1d9a6ac1128d185dba52e1fa521f77640d78641649e511035ac7765958"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "Intel 80386"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "False"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
         }
       ]
     },
     {
       "bom-ref": "9d7a37a8d8926db082066c37ff6852fc",
-      "type": "application",
+      "type": "unknown",
       "name": "binary5",
       "version": "4.1.2",
       "description": "g++",
@@ -161,16 +257,18 @@
       ],
       "dependencies": [
         {
-          "ref": "libc.so.6"
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
         },
         {
-          "ref": "/lib64/ld-linux-x86-64.so.2"
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
       "bom-ref": "146b59f46d09b9234d28aa1db18a8e88",
-      "type": "application",
+      "type": "unknown",
       "name": "binary6",
       "version": "4.1.2",
       "description": "gcc",
@@ -196,16 +294,18 @@
       ],
       "dependencies": [
         {
-          "ref": "libc.so.6"
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
         },
         {
-          "ref": "/lib64/ld-linux-x86-64.so.2"
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
       "bom-ref": "40aa837904b50328ebbf3a3380e966dc",
-      "type": "application",
+      "type": "unknown",
       "name": "binary7",
       "version": "4.1.2",
       "description": "gfortran",
@@ -231,16 +331,18 @@
       ],
       "dependencies": [
         {
-          "ref": "libc.so.6"
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "name": "/lib/libc.so.6"
         },
         {
-          "ref": "/lib64/ld-linux-x86-64.so.2"
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
       "bom-ref": "26baa7feee82f39e2738cfe1f603d776",
-      "type": "library",
+      "type": "unknown",
       "name": "binary8",
       "version": "4.1.2",
       "description": "libgfortran.so",

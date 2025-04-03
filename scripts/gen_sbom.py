@@ -48,13 +48,21 @@ def get_file_properties(file_path):
         {"name": "file:dynamically_linked", "value": dynamically_linked},
     ]
 
-def get_component_type(file_name):
-    file_extension = os.path.splitext(file_name)[1].lower()
-    if file_extension.startswith(".so"):
-        return "library"
-    elif file_extension in [".a", ".dll"]:
-        return "library"
-    return "application"
+def get_component_type(filename):
+    """Более читаемая версия с явными условиями"""
+    lower_name = filename.lower()
+    
+    is_library = (
+        lower_name.endswith(('.a', '.dll')) or
+        lower_name.endswith('.so') or
+        ('.so.' in lower_name and lower_name.split('.so.')[-1].isdigit())
+    )
+    
+    if is_library:
+        return 'library'
+    elif lower_name.endswith('.out'):
+        return 'application'
+    return 'unknown'
 
 def compute_sha256(file_path):
     sha256_hash = hashlib.sha256()

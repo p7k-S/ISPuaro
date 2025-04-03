@@ -6,8 +6,8 @@ digraph SBOM {
     "2bc75fa5ad779c5329d271546bcf9f65" [label="binary1\ncc1", shape=box];
     "2bc75fa5ad779c5329d271546bcf9f65" -> "009a09df458d78514d3f7324b74da26c";
     "2bc75fa5ad779c5329d271546bcf9f65" -> "786209f5ea18ea186d34979aa51f3343";
-    "009a09df458d78514d3f7324b74da26c" [label="libc.so.6\n", shape=box];
-    "786209f5ea18ea186d34979aa51f3343" [label="ld-linux-x86-64.so.2\n", shape=box];
+    "009a09df458d78514d3f7324b74da26c" [label="libc.so.6\n", shape=ellipse];
+    "786209f5ea18ea186d34979aa51f3343" [label="ld-linux-x86-64.so.2\n", shape=ellipse];
     "2f25beac43c57116de46e227db57d08b" [label="binary2\ncpp", shape=box];
     "2f25beac43c57116de46e227db57d08b" -> "009a09df458d78514d3f7324b74da26c";
     "2f25beac43c57116de46e227db57d08b" -> "786209f5ea18ea186d34979aa51f3343";
@@ -15,7 +15,7 @@ digraph SBOM {
     "ca21ec459bc61bf3f37b802de95643b5" -> "a472f69d270ee71120f52afd509771bc";
     "ca21ec459bc61bf3f37b802de95643b5" -> "009a09df458d78514d3f7324b74da26c";
     "ca21ec459bc61bf3f37b802de95643b5" -> "786209f5ea18ea186d34979aa51f3343";
-    "a472f69d270ee71120f52afd509771bc" [label="libz.so.1\n", shape=box];
+    "a472f69d270ee71120f52afd509771bc" [label="libz.so.1\n", shape=ellipse];
     "a472f69d270ee71120f52afd509771bc" -> "009a09df458d78514d3f7324b74da26c";
     "9d7a37a8d8926db082066c37ff6852fc" [label="binary5\ng++", shape=box];
     "9d7a37a8d8926db082066c37ff6852fc" -> "009a09df458d78514d3f7324b74da26c";
