@@ -49,8 +49,10 @@ def get_file_properties(file_path):
     ]
 
 def get_component_type(filename):
-    """Более читаемая версия с явными условиями"""
-    lower_name = filename.lower()
+    if filename in binary_descriptions:
+        lower_name = binary_descriptions[filename]
+    else:
+        lower_name = filename.lower()
     
     is_library = (
         lower_name.endswith(('.a', '.dll')) or

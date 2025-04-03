@@ -26,5 +26,5 @@ digraph SBOM {
     "40aa837904b50328ebbf3a3380e966dc" [label="binary7\ngfortran", shape=box];
     "40aa837904b50328ebbf3a3380e966dc" -> "009a09df458d78514d3f7324b74da26c";
     "40aa837904b50328ebbf3a3380e966dc" -> "786209f5ea18ea186d34979aa51f3343";
-    "26baa7feee82f39e2738cfe1f603d776" [label="binary8\nlibgfortran.so", shape=box];
+    "26baa7feee82f39e2738cfe1f603d776" [label="binary8\nlibgfortran.so", shape=ellipse];
 }

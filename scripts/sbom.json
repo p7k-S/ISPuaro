@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-03T16:21:41.524641Z",
+    "timestamp": "2025-04-03T17:04:58.283696Z",
     "tools": [
       {
         "vendor": "Custom SBOM Generator",
@@ -342,7 +342,7 @@
     },
     {
       "bom-ref": "26baa7feee82f39e2738cfe1f603d776",
-      "type": "unknown",
+      "type": "library",
       "name": "binary8",
       "version": "4.1.2",
       "description": "libgfortran.so",
