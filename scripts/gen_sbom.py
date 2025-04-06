@@ -208,8 +208,36 @@ def process_file(file_path, visited_files):
         "hashes": [{"alg": "SHA-256", "content": compute_sha256(file_path)}],
         "properties": get_file_properties(file_path),
         # "dependencies": [{"ref": generate_bom_ref(dep.strip()), "name": dep.strip()} for dep in dependencies]
-        "dependencies": dependencies
+        "dependencies": dependencies,
     }
+
+    if os.path.basename(file_path) == "binary3":
+        component["vulnerabilities"] = [
+            {
+                "id": "CVE-2021-4215",  # пример CVE
+                "source": {"name": "NVD", "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-4215"},
+                "ratings": [
+                    {
+                        "score": 7.8,
+                        "severity": "HIGH",
+                        "method": "CVSSv3",
+                    }
+                ],
+                "description": "Buffer overflow in main() function due to unchecked argument parsing.",
+            },
+            {
+                "id": "CVE-2020-10029",
+                "source": {"name": "NVD", "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-10029"},
+                "ratings": [
+                    {
+                        "score": 6.5,
+                        "severity": "MEDIUM",
+                        "method": "CVSSv3",
+                    }
+                ],
+                "description": "Integer overflow in handling of file offsets in GCC 4.1.2 ar tool.",
+            }
+        ]
     
     components = [component]
 
