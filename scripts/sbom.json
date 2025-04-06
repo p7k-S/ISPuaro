@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-03T17:04:58.283696Z",
+    "timestamp": "2025-04-06T13:55:56.252308Z",
     "tools": [
       {
         "vendor": "Custom SBOM Generator",
@@ -14,8 +14,8 @@
     "component": {
       "type": "framework",
       "name": "GCC Toolchain",
-      "version": "4.1.2",
-      "description": "GNU Compiler Collection (Debian 4.1.1-21)",
+      "version": "binary6 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+      "description": "GNU Compiler Collection",
       "purl": "pkg:deb/debian/gcc@4.1.2"
     },
     "platform": {
@@ -27,9 +27,9 @@
   "components": [
     {
       "bom-ref": "2bc75fa5ad779c5329d271546bcf9f65",
-      "type": "unknown",
+      "type": "application",
       "name": "binary1",
-      "version": "4.1.2",
+      "version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
       "description": "cc1",
       "hashes": [
         {
@@ -53,11 +53,18 @@
       ],
       "dependencies": [
         {
+          "ref": "2f25beac43c57116de46e227db57d08b",
+          "origin": "component",
+          "name": "cpp"
+        },
+        {
           "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
           "name": "/lib/libc.so.6"
         },
         {
           "ref": "786209f5ea18ea186d34979aa51f3343",
+          "origin": "ldd",
           "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
@@ -66,7 +73,7 @@
       "bom-ref": "009a09df458d78514d3f7324b74da26c",
       "type": "library",
       "name": "libc.so.6",
-      "version": "4.1.2",
+      "version": "not found",
       "description": "",
       "hashes": [
         {
@@ -94,7 +101,7 @@
       "bom-ref": "786209f5ea18ea186d34979aa51f3343",
       "type": "library",
       "name": "ld-linux-x86-64.so.2",
-      "version": "4.1.2",
+      "version": "not found",
       "description": "",
       "hashes": [
         {
@@ -120,9 +127,9 @@
     },
     {
       "bom-ref": "2f25beac43c57116de46e227db57d08b",
-      "type": "unknown",
+      "type": "application",
       "name": "binary2",
-      "version": "4.1.2",
+      "version": "binary2 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
       "description": "cpp",
       "hashes": [
         {
@@ -147,19 +154,21 @@
       "dependencies": [
         {
           "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
           "name": "/lib/libc.so.6"
         },
         {
           "ref": "786209f5ea18ea186d34979aa51f3343",
+          "origin": "ldd",
           "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
       "bom-ref": "ca21ec459bc61bf3f37b802de95643b5",
-      "type": "unknown",
+      "type": "application",
       "name": "binary3",
-      "version": "4.1.2",
+      "version": "jar (fastjar) 0.92-gcc-4.1",
       "description": "ar",
       "hashes": [
         {
@@ -184,14 +193,17 @@
       "dependencies": [
         {
           "ref": "a472f69d270ee71120f52afd509771bc",
+          "origin": "ldd",
           "name": "/lib/libz.so.1"
         },
         {
           "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
           "name": "/lib/libc.so.6"
         },
         {
           "ref": "786209f5ea18ea186d34979aa51f3343",
+          "origin": "ldd",
           "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
@@ -200,7 +212,7 @@
       "bom-ref": "a472f69d270ee71120f52afd509771bc",
       "type": "library",
       "name": "libz.so.1",
-      "version": "4.1.2",
+      "version": "not found",
       "description": "",
       "hashes": [
         {
@@ -225,15 +237,16 @@
       "dependencies": [
         {
           "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
           "name": "/lib/libc.so.6"
         }
       ]
     },
     {
       "bom-ref": "9d7a37a8d8926db082066c37ff6852fc",
-      "type": "unknown",
+      "type": "application",
       "name": "binary5",
-      "version": "4.1.2",
+      "version": "binary5 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
       "description": "g++",
       "hashes": [
         {
@@ -257,20 +270,27 @@
       ],
       "dependencies": [
         {
+          "ref": "2f25beac43c57116de46e227db57d08b",
+          "origin": "component",
+          "name": "cpp"
+        },
+        {
           "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
           "name": "/lib/libc.so.6"
         },
         {
           "ref": "786209f5ea18ea186d34979aa51f3343",
+          "origin": "ldd",
           "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
       "bom-ref": "146b59f46d09b9234d28aa1db18a8e88",
-      "type": "unknown",
+      "type": "application",
       "name": "binary6",
-      "version": "4.1.2",
+      "version": "binary6 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
       "description": "gcc",
       "hashes": [
         {
@@ -294,20 +314,37 @@
       ],
       "dependencies": [
         {
+          "ref": "9d7a37a8d8926db082066c37ff6852fc",
+          "origin": "component",
+          "name": "g++"
+        },
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "origin": "component",
+          "name": "gfortran"
+        },
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "origin": "component",
+          "name": "cc1"
+        },
+        {
           "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
           "name": "/lib/libc.so.6"
         },
         {
           "ref": "786209f5ea18ea186d34979aa51f3343",
+          "origin": "ldd",
           "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
     },
     {
       "bom-ref": "40aa837904b50328ebbf3a3380e966dc",
-      "type": "unknown",
+      "type": "application",
       "name": "binary7",
-      "version": "4.1.2",
+      "version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
       "description": "gfortran",
       "hashes": [
         {
@@ -331,11 +368,18 @@
       ],
       "dependencies": [
         {
+          "ref": "26baa7feee82f39e2738cfe1f603d776",
+          "origin": "component",
+          "name": "libgfortran.so"
+        },
+        {
           "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
           "name": "/lib/libc.so.6"
         },
         {
           "ref": "786209f5ea18ea186d34979aa51f3343",
+          "origin": "ldd",
           "name": "/lib64/ld-linux-x86-64.so.2"
         }
       ]
@@ -344,7 +388,7 @@
       "bom-ref": "26baa7feee82f39e2738cfe1f603d776",
       "type": "library",
       "name": "binary8",
-      "version": "4.1.2",
+      "version": "not executable",
       "description": "libgfortran.so",
       "hashes": [
         {

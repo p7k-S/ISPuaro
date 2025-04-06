@@ -15,6 +15,24 @@ binary_descriptions = {
     "binary8": "libgfortran.so"
 }
 
+# components_dependencies = {
+#     "gcc": ["g++", "gfortran", "cc1"],
+#     "g++": ["cpp"],
+#     "cc1": ["cpp"],
+#     "gfortran": ["libgfortran.so"],
+#     "cpp": [],
+#     "ar": [],
+#     "libgfortran.so": [],
+# }
+
+components_dependencies = {
+    "binary6": ["binary5", "binary7", "binary1"],
+    "binary5": ["binary2"],
+    "binary1": ["binary2"],
+    "binary7": ["binary8"],
+}
+
+
 SYSTEM_LIB_DIRS = ["/lib", "/usr/lib", "/lib64", "/usr/lib64"]  # Системные директории для поиска библиотек
 
 def run_file_command(file_path):
@@ -48,7 +66,9 @@ def get_file_properties(file_path):
         {"name": "file:dynamically_linked", "value": dynamically_linked},
     ]
 
-def get_component_type(filename):
+def get_component_type(file_path):
+    filename = os.path.basename(file_path)
+
     if filename in binary_descriptions:
         lower_name = binary_descriptions[filename]
     else:
@@ -62,9 +82,33 @@ def get_component_type(filename):
     
     if is_library:
         return 'library'
-    elif lower_name.endswith('.out'):
+    elif os.access(file_path, os.X_OK):
         return 'application'
     return 'unknown'
+
+def get_version(file_path):
+    filename = os.path.basename(file_path)
+    if filename in binary_descriptions:
+        if os.access(file_path, os.X_OK):
+            try:
+                result = subprocess.run([file_path, '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=2)
+                # Иногда версия выводится в stderr, если stdout пуст
+                output = result.stdout.strip() or result.stderr.strip()
+                first_line = output.splitlines()[0] if output else "unknown"
+                versions = first_line
+            except Exception as e:
+                versions = f"error: {str(e)}"
+        else:
+            versions = "not executable"
+    else:
+        versions = "not found"
+
+    return versions
+
+def get_gcc_version(file_path):
+    key = next((k for k, v in binary_descriptions.items() if v == "gcc"), None)
+    gcc_path = os.path.join(os.path.dirname(file_path), key)
+    return get_version(gcc_path)
 
 def compute_sha256(file_path):
     sha256_hash = hashlib.sha256()
@@ -125,47 +169,70 @@ def fetch_vulnerabilities():
             })
     return vulnerabilities
 
+def get_comp_deps(file_name):
+    return components_dependencies.get(file_name, [])
+
 def process_file(file_path, visited_files):
-    if file_path in visited_files:
+    if os.path.realpath(file_path) in visited_files:
         return []
 
-    visited_files.add(file_path)
-    ldd_output = run_ldd(file_path)
-    dependencies = extract_dependencies(ldd_output)
+    visited_files.add(os.path.realpath(file_path))
+    
+    component_dependencies = get_comp_deps(os.path.basename(file_path))
+    libs_deps = extract_dependencies(run_ldd(file_path))
+
+    dependencies = []
+
+    for dep_key in component_dependencies:
+        dep_name = binary_descriptions.get(dep_key, dep_key)
+        dep_path = os.path.join(os.path.dirname(file_path), dep_key)
+        dependencies.append({
+            "ref": generate_bom_ref(dep_path),
+            "origin": "component",
+            "name": dep_name
+        })
+
+    for dep in libs_deps:
+        dependencies.append({
+            "ref": generate_bom_ref(dep.strip()),
+            "origin": "ldd",
+            "name": dep.strip()
+        })
     
     component = {
         "bom-ref": generate_bom_ref(file_path),
-        "type": get_component_type(os.path.basename(file_path)),
-        "name": os.path.basename(file_path),  # Оставляем только имя файла
-        # "name": file_path,  # Указываем полный путь к файлу
-        "version": "4.1.2",
+        "type": get_component_type(file_path),
+        "name": os.path.basename(file_path),
+        "version": get_version(file_path),
         "description": get_description(os.path.basename(file_path)),  # Получаем описание из binary_descriptions
         "hashes": [{"alg": "SHA-256", "content": compute_sha256(file_path)}],
         "properties": get_file_properties(file_path),
-        "dependencies": [{"ref": generate_bom_ref(dep.strip()), "name": dep.strip()} for dep in dependencies]  # Добавлено имя
+        # "dependencies": [{"ref": generate_bom_ref(dep.strip()), "name": dep.strip()} for dep in dependencies]
+        "dependencies": dependencies
     }
     
     components = [component]
 
     # Рекурсивно анализируем зависимости
-    for dep in dependencies:
+    for dep in libs_deps:
         dep_file_path = dep.strip()
         if os.path.exists(dep_file_path):
             components.extend(process_file(dep_file_path, visited_files))
     
     return components
 
-def process_files_in_directory(directory_path):
+def generate_components(directory_path):
     components = []
     visited_files = set()
 
-    for root, dirs, files in os.walk(directory_path):
-        files.sort()
-        for file_name in files:
-            file_path = os.path.join(root, file_name)
-            if file_path not in visited_files:
-                components.extend(process_file(file_path, visited_files))
-    
+    for file_name in sorted(os.listdir(directory_path)):
+        file_path = os.path.join(directory_path, file_name)
+        if os.path.isfile(file_path) and file_path not in visited_files:
+            components.extend(process_file(file_path, visited_files))
+
+    return components
+
+def build_sbom_from_directory(directory_path):
     sbom = {
         "bomFormat": "CycloneDX",
         "specVersion": "1.4",
@@ -173,10 +240,20 @@ def process_files_in_directory(directory_path):
         "metadata": {
             "timestamp": datetime.utcnow().isoformat() + "Z",
             "tools": [{"vendor": "Custom SBOM Generator", "name": "GCC Component Analyzer", "version": "1.0"}],
-            "component": {"type": "framework", "name": "GCC Toolchain", "version": "4.1.2", "description": "GNU Compiler Collection (Debian 4.1.1-21)", "purl": "pkg:deb/debian/gcc@4.1.2"},
-            "platform": {"name": "x86_64-linux-gnu", "architecture": "x86_64", "operatingSystem": "Linux"}
+            "component": {
+                "type": "framework",
+                "name": "GCC Toolchain",
+                "version": get_gcc_version(directory_path),
+                "description": "GNU Compiler Collection",
+                "purl": "pkg:deb/debian/gcc@4.1.2"
+            },
+            "platform": {
+                "name": "x86_64-linux-gnu",
+                "architecture": "x86_64",
+                "operatingSystem": "Linux"
+            }
         },
-        "components": components,
+        "components": generate_components(directory_path),
         "vulnerabilities": fetch_vulnerabilities()
     }
     return sbom
@@ -187,6 +264,6 @@ def save_sbom_to_file(sbom, output_file):
 
 if __name__ == "__main__":
     directory_path = "../binaries/"
-    sbom = process_files_in_directory(directory_path)
+    sbom = build_sbom_from_directory(directory_path)
     save_sbom_to_file(sbom, "sbom.json")
     print("SBOM записан в файл sbom.json")
