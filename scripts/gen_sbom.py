@@ -16,7 +16,7 @@ binary_descriptions = {
 }
 
 # components_dependencies = {
-#     "gcc": ["g++", "gfortran", "cc1"],
+#     "gcc": ["g++", "gfortran", "cc1", "ar"],
 #     "g++": ["cpp"],
 #     "cc1": ["cpp"],
 #     "gfortran": ["libgfortran.so"],
@@ -26,7 +26,7 @@ binary_descriptions = {
 # }
 
 components_dependencies = {
-    "binary6": ["binary5", "binary7", "binary1"],
+    "binary6": ["binary5", "binary7", "binary1", "binary3"],
     "binary5": ["binary2"],
     "binary1": ["binary2"],
     "binary7": ["binary8"],

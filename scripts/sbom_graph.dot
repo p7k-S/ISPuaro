@@ -26,6 +26,7 @@ digraph SBOM {
     "146b59f46d09b9234d28aa1db18a8e88" -> "9d7a37a8d8926db082066c37ff6852fc" [color=red];
     "146b59f46d09b9234d28aa1db18a8e88" -> "40aa837904b50328ebbf3a3380e966dc" [color=red];
     "146b59f46d09b9234d28aa1db18a8e88" -> "2bc75fa5ad779c5329d271546bcf9f65" [color=red];
+    "146b59f46d09b9234d28aa1db18a8e88" -> "ca21ec459bc61bf3f37b802de95643b5" [color=red];
     "146b59f46d09b9234d28aa1db18a8e88" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
     "146b59f46d09b9234d28aa1db18a8e88" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
     "40aa837904b50328ebbf3a3380e966dc" [label="binary7\ngfortran", shape=box];
