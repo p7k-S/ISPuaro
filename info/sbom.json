@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-06T14:09:54.775343Z",
+    "timestamp": "2025-04-07T09:39:35.542675Z",
     "tools": [
       {
         "vendor": "Custom SBOM Generator",
@@ -359,6 +359,11 @@
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
           "origin": "component",
           "name": "cc1"
+        },
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "origin": "component",
+          "name": "ar"
         },
         {
           "ref": "009a09df458d78514d3f7324b74da26c",
