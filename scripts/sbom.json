@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-07T09:39:35.542675Z",
+    "timestamp": "2025-04-07T16:14:30.115717Z",
     "tools": [
       {
         "vendor": "Custom SBOM Generator",
@@ -26,15 +26,15 @@
   },
   "components": [
     {
-      "bom-ref": "2bc75fa5ad779c5329d271546bcf9f65",
+      "bom-ref": "88c3e51ee50dae4de56152d241533ef9",
       "type": "application",
-      "name": "binary1",
-      "version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
-      "description": "cc1",
+      "name": "a.out",
+      "version": "not found",
+      "description": "",
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "cff76eabdfd69d50619ec545336100bd0ee34fb06fd1521bf7add24441538eec"
+          "content": "ac4e5f0c3662baed51f87b66e0bcc7a6be4aa9bbc5da873c5fc228e909c506ba"
         }
       ],
       "properties": [
@@ -44,7 +44,7 @@
         },
         {
           "name": "file:strip",
-          "value": "True"
+          "value": "False"
         },
         {
           "name": "file:dynamically_linked",
@@ -52,11 +52,6 @@
         }
       ],
       "dependencies": [
-        {
-          "ref": "2f25beac43c57116de46e227db57d08b",
-          "origin": "component",
-          "name": "cpp"
-        },
         {
           "ref": "009a09df458d78514d3f7324b74da26c",
           "origin": "ldd",
@@ -126,6 +121,45 @@
       "dependencies": []
     },
     {
+      "bom-ref": "2bc75fa5ad779c5329d271546bcf9f65",
+      "type": "application",
+      "name": "binary1",
+      "version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+      "description": "cc1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cff76eabdfd69d50619ec545336100bd0ee34fb06fd1521bf7add24441538eec"
+        }
+      ],
+      "properties": [
+        {
+          "name": "file:architecture",
+          "value": "x86_64"
+        },
+        {
+          "name": "file:strip",
+          "value": "True"
+        },
+        {
+          "name": "file:dynamically_linked",
+          "value": "True"
+        }
+      ],
+      "dependencies": [
+        {
+          "ref": "009a09df458d78514d3f7324b74da26c",
+          "origin": "ldd",
+          "name": "/lib/libc.so.6"
+        },
+        {
+          "ref": "786209f5ea18ea186d34979aa51f3343",
+          "origin": "ldd",
+          "name": "/lib64/ld-linux-x86-64.so.2"
+        }
+      ]
+    },
+    {
       "bom-ref": "2f25beac43c57116de46e227db57d08b",
       "type": "application",
       "name": "binary2",
@@ -169,7 +203,7 @@
       "type": "application",
       "name": "binary3",
       "version": "jar (fastjar) 0.92-gcc-4.1",
-      "description": "ar",
+      "description": "jar",
       "hashes": [
         {
           "alg": "SHA-256",
@@ -205,38 +239,6 @@
           "ref": "786209f5ea18ea186d34979aa51f3343",
           "origin": "ldd",
           "name": "/lib64/ld-linux-x86-64.so.2"
-        }
-      ],
-      "vulnerabilities": [
-        {
-          "id": "CVE-2021-4215",
-          "source": {
-            "name": "NVD",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-4215"
-          },
-          "ratings": [
-            {
-              "score": 7.8,
-              "severity": "HIGH",
-              "method": "CVSSv3"
-            }
-          ],
-          "description": "Buffer overflow in main() function due to unchecked argument parsing."
-        },
-        {
-          "id": "CVE-2020-10029",
-          "source": {
-            "name": "NVD",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-10029"
-          },
-          "ratings": [
-            {
-              "score": 6.5,
-              "severity": "MEDIUM",
-              "method": "CVSSv3"
-            }
-          ],
-          "description": "Integer overflow in handling of file offsets in GCC 4.1.2 ar tool."
         }
       ]
     },
@@ -302,11 +304,6 @@
       ],
       "dependencies": [
         {
-          "ref": "2f25beac43c57116de46e227db57d08b",
-          "origin": "component",
-          "name": "cpp"
-        },
-        {
           "ref": "009a09df458d78514d3f7324b74da26c",
           "origin": "ldd",
           "name": "/lib/libc.so.6"
@@ -346,26 +343,6 @@
       ],
       "dependencies": [
         {
-          "ref": "9d7a37a8d8926db082066c37ff6852fc",
-          "origin": "component",
-          "name": "g++"
-        },
-        {
-          "ref": "40aa837904b50328ebbf3a3380e966dc",
-          "origin": "component",
-          "name": "gfortran"
-        },
-        {
-          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
-          "origin": "component",
-          "name": "cc1"
-        },
-        {
-          "ref": "ca21ec459bc61bf3f37b802de95643b5",
-          "origin": "component",
-          "name": "ar"
-        },
-        {
           "ref": "009a09df458d78514d3f7324b74da26c",
           "origin": "ldd",
           "name": "/lib/libc.so.6"
@@ -404,11 +381,6 @@
         }
       ],
       "dependencies": [
-        {
-          "ref": "26baa7feee82f39e2738cfe1f603d776",
-          "origin": "component",
-          "name": "libgfortran.so"
-        },
         {
           "ref": "009a09df458d78514d3f7324b74da26c",
           "origin": "ldd",

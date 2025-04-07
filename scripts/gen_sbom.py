@@ -5,33 +5,16 @@ import subprocess
 import requests
 from datetime import datetime
 
+# В словарь можно добавить свое описание компонента которое пойдет в sbom.json
 binary_descriptions = {
     "binary1": "cc1",
     "binary2": "cpp",
-    "binary3": "ar",
+    "binary3": "jar",
     "binary5": "g++",
     "binary6": "gcc",
     "binary7": "gfortran",
     "binary8": "libgfortran.so"
 }
-
-# components_dependencies = {
-#     "gcc": ["g++", "gfortran", "cc1", "ar"],
-#     "g++": ["cpp"],
-#     "cc1": ["cpp"],
-#     "gfortran": ["libgfortran.so"],
-#     "cpp": [],
-#     "ar": [],
-#     "libgfortran.so": [],
-# }
-
-components_dependencies = {
-    "binary6": ["binary5", "binary7", "binary1", "binary3"],
-    "binary5": ["binary2"],
-    "binary1": ["binary2"],
-    "binary7": ["binary8"],
-}
-
 
 SYSTEM_LIB_DIRS = ["/lib", "/usr/lib", "/lib64", "/usr/lib64"]  # Системные директории для поиска библиотек
 
@@ -106,9 +89,12 @@ def get_version(file_path):
     return versions
 
 def get_gcc_version(file_path):
-    key = next((k for k, v in binary_descriptions.items() if v == "gcc"), None)
-    gcc_path = os.path.join(os.path.dirname(file_path), key)
-    return get_version(gcc_path)
+    if "gcc" in binary_descriptions.values():
+        key = next(k for k, v in binary_descriptions.items() if v == "gcc")
+        gcc_path = os.path.join(os.path.dirname(file_path), key)
+        return get_version(gcc_path)
+    else:
+        return None
 
 def compute_sha256(file_path):
     sha256_hash = hashlib.sha256()
@@ -169,28 +155,15 @@ def fetch_vulnerabilities():
             })
     return vulnerabilities
 
-def get_comp_deps(file_name):
-    return components_dependencies.get(file_name, [])
-
 def process_file(file_path, visited_files):
     if os.path.realpath(file_path) in visited_files:
         return []
 
     visited_files.add(os.path.realpath(file_path))
     
-    component_dependencies = get_comp_deps(os.path.basename(file_path))
     libs_deps = extract_dependencies(run_ldd(file_path))
 
     dependencies = []
-
-    for dep_key in component_dependencies:
-        dep_name = binary_descriptions.get(dep_key, dep_key)
-        dep_path = os.path.join(os.path.dirname(file_path), dep_key)
-        dependencies.append({
-            "ref": generate_bom_ref(dep_path),
-            "origin": "component",
-            "name": dep_name
-        })
 
     for dep in libs_deps:
         dependencies.append({
@@ -204,41 +177,13 @@ def process_file(file_path, visited_files):
         "type": get_component_type(file_path),
         "name": os.path.basename(file_path),
         "version": get_version(file_path),
-        "description": get_description(os.path.basename(file_path)),  # Получаем описание из binary_descriptions
+        "description": get_description(os.path.basename(file_path)),  # Получаем описание из binary_descriptions если есть
         "hashes": [{"alg": "SHA-256", "content": compute_sha256(file_path)}],
         "properties": get_file_properties(file_path),
         # "dependencies": [{"ref": generate_bom_ref(dep.strip()), "name": dep.strip()} for dep in dependencies]
         "dependencies": dependencies,
     }
 
-    if os.path.basename(file_path) == "binary3":
-        component["vulnerabilities"] = [
-            {
-                "id": "CVE-2021-4215",  # пример CVE
-                "source": {"name": "NVD", "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-4215"},
-                "ratings": [
-                    {
-                        "score": 7.8,
-                        "severity": "HIGH",
-                        "method": "CVSSv3",
-                    }
-                ],
-                "description": "Buffer overflow in main() function due to unchecked argument parsing.",
-            },
-            {
-                "id": "CVE-2020-10029",
-                "source": {"name": "NVD", "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-10029"},
-                "ratings": [
-                    {
-                        "score": 6.5,
-                        "severity": "MEDIUM",
-                        "method": "CVSSv3",
-                    }
-                ],
-                "description": "Integer overflow in handling of file offsets in GCC 4.1.2 ar tool.",
-            }
-        ]
-    
     components = [component]
 
     # Рекурсивно анализируем зависимости
