@@ -4,35 +4,37 @@ digraph SBOM {
     // Platform: x86_64-linux-gnu (x86_64)
     // Description: GNU Compiler Collection
     "pkg:deb/debian/gcc@4.1.2" [label="GCC Toolchain\nGNU Compiler Collection", shape=box, style="bold,filled", fillcolor=lightgray, penwidth=3];
-    "2bc75fa5ad779c5329d271546bcf9f65" [label="binary1\ncc1", shape=box];
+    "2bc75fa5ad779c5329d271546bcf9f65" [label="binary1\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "2bc75fa5ad779c5329d271546bcf9f65" [color=red, style=bold, penwidth=3];
     "2bc75fa5ad779c5329d271546bcf9f65" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
     "2bc75fa5ad779c5329d271546bcf9f65" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
     "009a09df458d78514d3f7324b74da26c" [label="libc.so.6\n", shape=ellipse];
     "786209f5ea18ea186d34979aa51f3343" [label="ld-linux-x86-64.so.2\n", shape=ellipse];
-    "2f25beac43c57116de46e227db57d08b" [label="binary2\ncpp", shape=box];
+    "2f25beac43c57116de46e227db57d08b" [label="binary2\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "2f25beac43c57116de46e227db57d08b" [color=red, style=bold, penwidth=3];
     "2f25beac43c57116de46e227db57d08b" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
     "2f25beac43c57116de46e227db57d08b" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
-    "ca21ec459bc61bf3f37b802de95643b5" [label="binary3\njar", shape=box];
+    "ca21ec459bc61bf3f37b802de95643b5" [label="binary3\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "ca21ec459bc61bf3f37b802de95643b5" [color=red, style=bold, penwidth=3];
     "ca21ec459bc61bf3f37b802de95643b5" -> "a472f69d270ee71120f52afd509771bc" [color=blue];
     "ca21ec459bc61bf3f37b802de95643b5" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
     "ca21ec459bc61bf3f37b802de95643b5" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
     "a472f69d270ee71120f52afd509771bc" [label="libz.so.1\n", shape=ellipse];
     "a472f69d270ee71120f52afd509771bc" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
-    "9d7a37a8d8926db082066c37ff6852fc" [label="binary5\ng++", shape=box];
+    "9d7a37a8d8926db082066c37ff6852fc" [label="binary5\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "9d7a37a8d8926db082066c37ff6852fc" [color=red, style=bold, penwidth=3];
     "9d7a37a8d8926db082066c37ff6852fc" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
     "9d7a37a8d8926db082066c37ff6852fc" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
-    "146b59f46d09b9234d28aa1db18a8e88" [label="binary6\ngcc", shape=box];
+    "146b59f46d09b9234d28aa1db18a8e88" [label="binary6\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "146b59f46d09b9234d28aa1db18a8e88" [color=red, style=bold, penwidth=3];
     "146b59f46d09b9234d28aa1db18a8e88" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
     "146b59f46d09b9234d28aa1db18a8e88" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
-    "40aa837904b50328ebbf3a3380e966dc" [label="binary7\ngfortran", shape=box];
+    "40aa837904b50328ebbf3a3380e966dc" [label="binary7\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "40aa837904b50328ebbf3a3380e966dc" [color=red, style=bold, penwidth=3];
     "40aa837904b50328ebbf3a3380e966dc" -> "009a09df458d78514d3f7324b74da26c" [color=blue];
     "40aa837904b50328ebbf3a3380e966dc" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
-    "26baa7feee82f39e2738cfe1f603d776" [label="binary8\nlibgfortran.so", shape=ellipse];
+    "26baa7feee82f39e2738cfe1f603d776" [label="binary8\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "26baa7feee82f39e2738cfe1f603d776" [color=red, style=bold, penwidth=3];
+    "04ec9a192583fb263810d342a9d2ae93" [label="results.json\n", shape=box];
+    "pkg:deb/debian/gcc@4.1.2" -> "04ec9a192583fb263810d342a9d2ae93" [color=red, style=bold, penwidth=3];
 }

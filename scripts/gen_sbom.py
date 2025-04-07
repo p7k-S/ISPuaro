@@ -5,15 +5,17 @@ import subprocess
 import requests
 from datetime import datetime
 
-# В словарь можно добавить свое описание компонента которое пойдет в sbom.json
+#=============================================================================#
+# В словарь можно добавить свое описание компонента которое пойдет в sbom.json#
+#=============================================================================#
 binary_descriptions = {
-    "binary1": "cc1",
-    "binary2": "cpp",
-    "binary3": "jar",
-    "binary5": "g++",
-    "binary6": "gcc",
-    "binary7": "gfortran",
-    "binary8": "libgfortran.so"
+    # "binary1": "cc1",
+    # "binary2": "cpp",
+    # "binary3": "jar",
+    # "binary5": "g++",
+    # "binary6": "gcc",
+    # "binary7": "gfortran",
+    # "binary8": "libgfortran.so"
 }
 
 SYSTEM_LIB_DIRS = ["/lib", "/usr/lib", "/lib64", "/usr/lib64"]  # Системные директории для поиска библиотек
@@ -71,30 +73,23 @@ def get_component_type(file_path):
 
 def get_version(file_path):
     filename = os.path.basename(file_path)
-    if filename in binary_descriptions:
-        if os.access(file_path, os.X_OK):
-            try:
-                result = subprocess.run([file_path, '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=2)
-                # Иногда версия выводится в stderr, если stdout пуст
-                output = result.stdout.strip() or result.stderr.strip()
-                first_line = output.splitlines()[0] if output else "unknown"
-                versions = first_line
-            except Exception as e:
-                versions = f"error: {str(e)}"
-        else:
-            versions = "not executable"
+    if os.access(file_path, os.X_OK):
+        try:
+            result = subprocess.run([file_path, '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=2)
+            output = result.stdout.strip() or result.stderr.strip()
+            first_line = output.splitlines()[0] if output else "unknown"
+            versions = first_line
+        except Exception as e:
+            versions = f"error: {str(e)}"
     else:
-        versions = "not found"
+        versions = "not executable"
 
     return versions
 
-def get_gcc_version(file_path):
-    if "gcc" in binary_descriptions.values():
-        key = next(k for k, v in binary_descriptions.items() if v == "gcc")
-        gcc_path = os.path.join(os.path.dirname(file_path), key)
-        return get_version(gcc_path)
-    else:
-        return None
+def get_gcc_version(directory_path):
+    files = sorted(os.listdir(directory_path))
+    first_file = os.path.join(directory_path, files[0])
+    return get_version(first_file)
 
 def compute_sha256(file_path):
     sha256_hash = hashlib.sha256()
