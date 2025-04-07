@@ -35,6 +35,4 @@ digraph SBOM {
     "40aa837904b50328ebbf3a3380e966dc" -> "786209f5ea18ea186d34979aa51f3343" [color=blue];
     "26baa7feee82f39e2738cfe1f603d776" [label="binary8\n", shape=box];
     "pkg:deb/debian/gcc@4.1.2" -> "26baa7feee82f39e2738cfe1f603d776" [color=red, style=bold, penwidth=3];
-    "04ec9a192583fb263810d342a9d2ae93" [label="results.json\n", shape=box];
-    "pkg:deb/debian/gcc@4.1.2" -> "04ec9a192583fb263810d342a9d2ae93" [color=red, style=bold, penwidth=3];
 }
