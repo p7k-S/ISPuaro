@@ -161,7 +161,7 @@ def fetch_vulnerabilities(directory_path, api_key):
         unique_terms = set(term for term in search_terms if term.strip())                
 
         for term in unique_terms:
-            print(f"Отправка запроса: '{term}'")
+            print(f"search CVE for: '{term}'")
             try:
                 if api_key == "":
                     response = requests.get(
@@ -208,8 +208,26 @@ def fetch_vulnerabilities(directory_path, api_key):
             except Exception as e:
                 print(f"Ошибка для '{term}': {str(e)}")
                 continue
-    
-    print(f"Всего найдено CVE: {len(vulnerabilities)}")
+
+    print(f"Всего найдено CVE по ключевым словам: {len(vulnerabilities)}")
+    # url = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+    # params = {"virtualMatchString": "cpe:2.3:a:gnu:gcc:4.1.2:*:*:*:*:*:*:*", "resultsPerPage": 50}
+    # response = requests.get(url, params=params)
+    # data = response.json()
+    # vulnerabilities = []
+    #
+    # if data.get("totalResults", 0) > 0:
+    #     for vuln in data["vulnerabilities"]:
+    #         cve = vuln["cve"]
+    #         vulnerabilities.append({
+    #             "id": cve["id"],
+    #             "description": cve["descriptions"][0]["value"],
+    #             "published": cve["published"],
+    #             "source": {"name": "NVD", "url": f"https://nvd.nist.gov/vuln/detail/{cve['id']}"}
+    #             })
+    #
+    # print(f"Всего найдено CVE: {len(vulnerabilities)}")
+
     return vulnerabilities
 
 def process_file(file_path, visited_files):
