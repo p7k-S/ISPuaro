@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-08T10:43:50.183635Z",
+    "timestamp": "2025-04-08T10:47:08.052526Z",
     "tools": [
       {
         "vendor": "Custom SBOM Generator",
@@ -395,6 +395,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -412,6 +413,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -429,6 +431,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -446,6 +449,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -463,6 +467,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -480,6 +485,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -497,6 +503,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -514,6 +521,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -531,6 +539,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -548,6 +557,7 @@
       "affects": [
         {
           "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "file": "binary1",
           "search_term": "gnu",
           "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
           "detected_version": "4.1.2"
@@ -565,6 +575,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -582,6 +593,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -599,6 +611,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -616,6 +629,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -633,6 +647,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -650,6 +665,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -667,6 +683,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -684,6 +701,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -701,6 +719,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -718,6 +737,7 @@
       "affects": [
         {
           "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "file": "binary3",
           "search_term": "jar",
           "full_version": "jar (fastjar) 0.92-gcc-4.1",
           "detected_version": "0.92"
@@ -735,6 +755,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -752,6 +773,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -769,6 +791,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -786,6 +809,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -803,6 +827,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -820,6 +845,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -837,6 +863,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -854,6 +881,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -871,6 +899,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
@@ -888,6 +917,7 @@
       "affects": [
         {
           "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "file": "binary7",
           "search_term": "gnu",
           "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
           "detected_version": "4.1.2"
