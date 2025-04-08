@@ -3,7 +3,7 @@
   "specVersion": "1.4",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-04-07T18:11:04.275400Z",
+    "timestamp": "2025-04-08T10:43:50.183635Z",
     "tools": [
       {
         "vendor": "Custom SBOM Generator",
@@ -385,58 +385,514 @@
   ],
   "vulnerabilities": [
     {
-      "id": "CVE-2015-5276",
-      "description": "The std::random_device class in libstdc++ in the GNU Compiler Collection (aka GCC) before 4.9.4 does not properly handle short reads from blocking sources, which makes it easier for context-dependent attackers to predict the random values via unspecified vectors.",
-      "published": "2015-11-17T15:59:04.357",
+      "id": "CVE-1999-1572",
+      "description": "cpio on freebsd 2.1.0, debian gnu/linux 3.0, and possibly other operating systems, uses a 0 umask when creating files using the -o (archive) or -f options, which creates the files with mode 0666 and allows local users to read or overwrite those files.",
+      "published": "1996-07-16T04:00:00.000",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-5276"
-      }
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-1572"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
     },
     {
-      "id": "CVE-2018-12886",
-      "description": "stack_protect_prologue in cfgexpand.c and stack_protect_epilogue in function.c in GNU Compiler Collection (GCC) 4.1 through 8 (under certain circumstances) generate instruction sequences when targeting ARM targets that spill the address of the stack protector guard, which allows an attacker to bypass the protection of -fstack-protector, -fstack-protector-all, -fstack-protector-strong, and -fstack-protector-explicit against stack overflow by controlling what the stack canary is compared against.",
-      "published": "2019-05-22T19:29:00.297",
+      "id": "CVE-1999-0202",
+      "description": "the gnu tar command, when used in ftp sessions, may allow an attacker to execute arbitrary commands.",
+      "published": "1997-01-01T05:00:00.000",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-12886"
-      }
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0202"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
     },
     {
-      "id": "CVE-2019-15847",
-      "description": "The POWER9 backend in GNU Compiler Collection (GCC) before version 10 could optimize multiple calls of the __builtin_darn intrinsic into a single call, thus reducing the entropy of the random number generator. This occurred because a volatile operation was not specified. For example, within a single execution of a program, the output of every __builtin_darn() call may be the same.",
-      "published": "2019-09-02T23:15:10.837",
+      "id": "CVE-1999-1411",
+      "description": "the installation of the fsp package 2.71-10 in debian gnu/linux 2.0 adds the anonymous ftp user without notifying the administrator, which could automatically enable anonymous ftp on some servers such as wu-ftp.",
+      "published": "1998-11-26T05:00:00.000",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-15847"
-      }
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-1411"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
     },
     {
-      "id": "CVE-2002-2439",
-      "description": "Integer overflow in the new[] operator in gcc before 4.8.0 allows attackers to have unspecified impacts.",
-      "published": "2019-10-23T18:15:11.007",
+      "id": "CVE-1999-0914",
+      "description": "buffer overflow in the ftp client in the debian gnu/linux netstd package.",
+      "published": "1999-01-03T05:00:00.000",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2002-2439"
-      }
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0914"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
     },
     {
-      "id": "CVE-2021-37322",
-      "description": "GCC c++filt v2.26 was discovered to contain a use-after-free vulnerability via the component cplus-dem.c.",
-      "published": "2021-11-18T22:15:07.600",
+      "id": "CVE-1999-0678",
+      "description": "a default configuration of apache on debian gnu/linux sets the serverroot to /usr/doc, which allows remote users to read documentation files for the entire server.",
+      "published": "1999-01-17T05:00:00.000",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-37322"
-      }
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0678"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
     },
     {
-      "id": "CVE-2023-4039",
-      "description": "**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.",
-      "published": "2023-09-13T09:15:15.690",
+      "id": "CVE-1999-0373",
+      "description": "buffer overflow in the \"super\" utility in debian gnu/linux, and other operating systems, allows local users to execute commands as root.",
+      "published": "1999-02-01T05:00:00.000",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4039"
-      }
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0373"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0374",
+      "description": "debian gnu/linux cfengine package is susceptible to a symlink attack.",
+      "published": "1999-02-16T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0374"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2000-0367",
+      "description": "vulnerability in eterm 0.8.8 in debian gnu/linux allows an attacker to gain root privileges.",
+      "published": "1999-02-18T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2000-0367"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0409",
+      "description": "buffer overflow in gnuplot in linux version 3.5 allows local users to obtain root access.",
+      "published": "1999-03-04T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0409"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-1165",
+      "description": "gnu fingerd 1.37 does not properly drop privileges before accessing user information, which could allow local users to (1) gain root privileges via a malicious program in the .fingerrc file, or (2) read arbitrary files via symbolic links from .plan, .forward, or .project files.",
+      "published": "1999-07-21T04:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-1165"
+      },
+      "affects": [
+        {
+          "ref": "2bc75fa5ad779c5329d271546bcf9f65",
+          "search_term": "gnu",
+          "full_version": "GNU C++ version 4.1.2 20061115 (prerelease) (Debian 4.1.1-21) (x86_64-linux-gnu)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2001-1324",
+      "description": "cvmlogin and statfile in paul jarc idtools before 2001.06.27 do not properly check the return value of a call to the pathexec_env function, which could cause the setstate utility to setuid to the uid environment variable and allow local users to gain privileges.",
+      "published": "2001-06-26T04:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2001-1324"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2002-1308",
+      "description": "heap-based buffer overflow in netscape and mozilla allows remote attackers to execute arbitrary code via a jar: url that references a malformed .jar file, which overflows a buffer during decompression.",
+      "published": "2002-11-29T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2002-1308"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2002-1796",
+      "description": "chaivm ezloader for hp color laserjet 4500 and 4550 and hp laserjet 4100 and 8150 does not properly verify jar signatures for new services, which allows local users to load unauthorized chai services.",
+      "published": "2002-12-31T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2002-1796"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2003-1229",
+      "description": "x509trustmanager in (1) java secure socket extension (jsse) in sdk and jre 1.4.0 through 1.4.0_01, (2) jsse before 1.0.3, (3) java plug-in sdk and jre 1.3.0 through 1.4.1, and (4) java web start 1.0 through 1.2 incorrectly calls the isclienttrusted method when determining server trust, which results in improper validation of digital certificate and allows remote attackers to (1) falsely authenticate peers for ssl or (2) incorrectly validate signed jar files.",
+      "published": "2003-12-31T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2003-1229"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2005-1531",
+      "description": "firefox before 1.0.4 and mozilla suite before 1.7.8 does not properly implement certain security checks for script injection, which allows remote attackers to execute script via \"wrapped\" javascript: urls, as demonstrated using (1) a javascript: url in a view-source: url, (2) a javascript: url in a jar: url, or (3) \"a nested variant.\"",
+      "published": "2005-05-12T04:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2005-1531"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2006-0890",
+      "description": "directory traversal vulnerability in speedproject squeez 5.1, as used in (1) zipstar 5.1 and (2) speedcommander 11.01.4450, allows remote attackers to overwrite arbitrary files via unspecified manipulations in a (1) jar or (2) zip archive.",
+      "published": "2006-02-25T11:02:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-0890"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2006-2520",
+      "description": "directory traversal vulnerability in bitzipper 4.1.2 sr-1 and earlier allows remote attackers to create files in arbitrary directories via a ..  (dot dot) in the filename of a file that is stored in a (1) rar (.rar), (2) tar (.tar), (3) zip (.zip), (4) gz (.gz), or (5) jar (.jar) archive.",
+      "published": "2006-05-22T22:02:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-2520"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2006-3326",
+      "description": "directory traversal vulnerability in quickzip 3.06.3 allows remote user-assisted attackers to overwrite arbitrary files or directories via .. (dot dot) sequences in filenames within (1) tar,(2) gz, and (3) jar archives.  note: the provenance of this information is unknown; the details are obtained solely from third party information.",
+      "published": "2006-06-30T23:05:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-3326"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2007-0412",
+      "description": "bea weblogic server 6.1 through 6.1 sp7, 7.0 through 7.0 sp7, and 8.1 through 8.1 sp5 allows remote attackers to read arbitrary files inside the class-path property via .ear or exploded .ear files that use the manifest class-path property to point to utility jar files.",
+      "published": "2007-01-23T00:28:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2007-0412"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2007-0415",
+      "description": "bea weblogic server 8.1 through 8.1 sp5 does not properly enforce access control after a dynamic update and dynamic redeployment of an application that is implemented through exploded jars, which allows attackers to bypass intended access restrictions.",
+      "published": "2007-01-23T00:28:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2007-0415"
+      },
+      "affects": [
+        {
+          "ref": "ca21ec459bc61bf3f37b802de95643b5",
+          "search_term": "jar",
+          "full_version": "jar (fastjar) 0.92-gcc-4.1",
+          "detected_version": "0.92"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-1572",
+      "description": "cpio on freebsd 2.1.0, debian gnu/linux 3.0, and possibly other operating systems, uses a 0 umask when creating files using the -o (archive) or -f options, which creates the files with mode 0666 and allows local users to read or overwrite those files.",
+      "published": "1996-07-16T04:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-1572"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0202",
+      "description": "the gnu tar command, when used in ftp sessions, may allow an attacker to execute arbitrary commands.",
+      "published": "1997-01-01T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0202"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-1411",
+      "description": "the installation of the fsp package 2.71-10 in debian gnu/linux 2.0 adds the anonymous ftp user without notifying the administrator, which could automatically enable anonymous ftp on some servers such as wu-ftp.",
+      "published": "1998-11-26T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-1411"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0914",
+      "description": "buffer overflow in the ftp client in the debian gnu/linux netstd package.",
+      "published": "1999-01-03T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0914"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0678",
+      "description": "a default configuration of apache on debian gnu/linux sets the serverroot to /usr/doc, which allows remote users to read documentation files for the entire server.",
+      "published": "1999-01-17T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0678"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0373",
+      "description": "buffer overflow in the \"super\" utility in debian gnu/linux, and other operating systems, allows local users to execute commands as root.",
+      "published": "1999-02-01T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0373"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0374",
+      "description": "debian gnu/linux cfengine package is susceptible to a symlink attack.",
+      "published": "1999-02-16T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0374"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2000-0367",
+      "description": "vulnerability in eterm 0.8.8 in debian gnu/linux allows an attacker to gain root privileges.",
+      "published": "1999-02-18T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2000-0367"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-0409",
+      "description": "buffer overflow in gnuplot in linux version 3.5 allows local users to obtain root access.",
+      "published": "1999-03-04T05:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-0409"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
+    },
+    {
+      "id": "CVE-1999-1165",
+      "description": "gnu fingerd 1.37 does not properly drop privileges before accessing user information, which could allow local users to (1) gain root privileges via a malicious program in the .fingerrc file, or (2) read arbitrary files via symbolic links from .plan, .forward, or .project files.",
+      "published": "1999-07-21T04:00:00.000",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-1999-1165"
+      },
+      "affects": [
+        {
+          "ref": "40aa837904b50328ebbf3a3380e966dc",
+          "search_term": "gnu",
+          "full_version": "GNU Fortran 95 (GCC) 4.1.2 20061115 (prerelease) (Debian 4.1.1-21)",
+          "detected_version": "4.1.2"
+        }
+      ]
     }
   ]
 }
