@@ -161,7 +161,7 @@ def fetch_vulnerabilities(directory_path, api_key):
         unique_terms = set(term for term in search_terms if term.strip())                
 
         for term in unique_terms:
-            print(f"search CVE for: '{term}'")
+            print(f"search CVE for {file_name}, key words: '{term}'")
             try:
                 if api_key == "":
                     response = requests.get(
