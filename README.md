@@ -4,6 +4,7 @@
 
 ## 📋 Требования  
 - Python 3.8+
+- NVD API Key
 - Стандартные утилиты Linux: `file`, `ldd`, `readelf`, `objdump`, `nm`, `strings`
 - Graphviz (`dot`) для визуализации графов
 - Доступ к интернету для запросов к NVD API
@@ -13,7 +14,7 @@
 git clone https://github.com/p7k-S/ISPuaro/
 cd ISPuaro/scripts/
 python info.py                 #базовый анализ всех бинарников -> ISPuaro/info/
-python gen_sbom.py             #генерация SBOM
+python gen_sbom.py --api-key ваш_ключ --dir путь_к_директории --output выходной_файл.json
 python graphviz.py sbom.json   #создает .dot файл для графа компонент
 dot -Tpng sbom_graph.dot -o sbom_graph.png
 ```
