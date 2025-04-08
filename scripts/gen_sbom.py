@@ -1,9 +1,12 @@
+import re
 import os
 import json
 import hashlib
 import subprocess
 import requests
+import argparse
 from datetime import datetime
+from urllib.parse import quote
 
 #=============================================================================#
 # В словарь можно добавить свое описание компонента которое пойдет в sbom.json#
@@ -132,22 +135,80 @@ def extract_dependencies(ldd_output):
                 dependencies.append(lib)
     return dependencies
 
-def fetch_vulnerabilities():
-    url = "https://services.nvd.nist.gov/rest/json/cves/2.0"
-    params = {"virtualMatchString": "cpe:2.3:a:gnu:gcc:4.1.2:*:*:*:*:*:*:*", "resultsPerPage": 50}
-    response = requests.get(url, params=params)
-    data = response.json()
+def fetch_vulnerabilities(directory_path, api_key):
     vulnerabilities = []
     
-    if data.get("totalResults", 0) > 0:
-        for vuln in data["vulnerabilities"]:
-            cve = vuln["cve"]
-            vulnerabilities.append({
-                "id": cve["id"],
-                "description": cve["descriptions"][0]["value"],
-                "published": cve["published"],
-                "source": {"name": "NVD", "url": f"https://nvd.nist.gov/vuln/detail/{cve['id']}"}
-            })
+    for file_name in os.listdir(directory_path):
+        file_path = os.path.join(directory_path, file_name)
+        version_output = get_version(file_path)
+        
+        if version_output == "not executable":
+            continue
+            
+        words = version_output.split()
+        version_match = re.search(r'(\d+\.\d+(?:\.\d+)?)', version_output)
+        version = version_match.group(0) if version_match else ""
+        search_terms = []
+        
+        if len(words) >= 1:
+            first_word = words[0].lower()
+            
+            if version:
+                search_terms.append(f"{first_word} {version}")
+                
+            search_terms.append(first_word)
+        
+        unique_terms = set(term for term in search_terms if term.strip())                
+
+        for term in unique_terms:
+            print(f"Отправка запроса: '{term}'")
+            try:
+                if api_key == "":
+                    response = requests.get(
+                        "https://services.nvd.nist.gov/rest/json/cves/2.0",
+                        params={"keywordSearch": quote(term), "resultsPerPage": 10},
+                        timeout=5
+                    )
+                else:
+                    response = requests.get(
+                        "https://services.nvd.nist.gov/rest/json/cves/2.0",
+                        params={"keywordSearch": quote(term), "resultsPerPage": 10},
+                        headers={
+                            "apiKey": api_key
+                            },
+                        timeout=5
+                    )
+                    
+                data = response.json()
+                
+                for vuln in data.get("vulnerabilities", []):
+                    cve = vuln["cve"]
+                    description = cve["descriptions"][0]["value"].lower()
+                    
+                    if term.lower() in description:
+                        vuln_entry = {
+                            "id": cve["id"],
+                            "description": description,
+                            "published": cve["published"],
+                            "source": {
+                                "name": "NVD",
+                                "url": f"https://nvd.nist.gov/vuln/detail/{cve['id']}"
+                            },
+                            "affects": [{
+                                "ref": generate_bom_ref(file_path),
+                                "search_term": term,
+                                "full_version": version_output,
+                                "detected_version": version
+                            }]
+                        }
+                        if vuln_entry not in vulnerabilities:
+                            vulnerabilities.append(vuln_entry)
+                            
+            except Exception as e:
+                print(f"Ошибка для '{term}': {str(e)}")
+                continue
+    
+    print(f"Всего найдено CVE: {len(vulnerabilities)}")
     return vulnerabilities
 
 def process_file(file_path, visited_files):
@@ -200,7 +261,7 @@ def generate_components(directory_path):
 
     return components
 
-def build_sbom_from_directory(directory_path):
+def build_sbom_from_directory(directory_path, api_key):
     sbom = {
         "bomFormat": "CycloneDX",
         "specVersion": "1.4",
@@ -222,7 +283,7 @@ def build_sbom_from_directory(directory_path):
             }
         },
         "components": generate_components(directory_path),
-        "vulnerabilities": fetch_vulnerabilities()
+        "vulnerabilities": fetch_vulnerabilities(directory_path, api_key)
     }
     return sbom
 
@@ -230,8 +291,16 @@ def save_sbom_to_file(sbom, output_file):
     with open(output_file, 'w') as f:
         json.dump(sbom, f, indent=2)
 
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--api-key", default="", help="NVD API ключ")
+    parser.add_argument("--dir", default="../binaries/", help="Директория с бинарными файлами")
+    parser.add_argument("--output", default="sbom.json", help="Выходной файл для SBOM")
+    args = parser.parse_args()
+
+    sbom = build_sbom_from_directory(args.dir, args.api_key)
+    save_sbom_to_file(sbom, args.output)
+    print(f"SBOM записан в файл {args.output}")
+
 if __name__ == "__main__":
-    directory_path = "../binaries/"
-    sbom = build_sbom_from_directory(directory_path)
-    save_sbom_to_file(sbom, "sbom.json")
-    print("SBOM записан в файл sbom.json")
+    main()
