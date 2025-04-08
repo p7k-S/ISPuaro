@@ -196,6 +196,7 @@ def fetch_vulnerabilities(directory_path, api_key):
                             },
                             "affects": [{
                                 "ref": generate_bom_ref(file_path),
+                                "file": os.path.basename(file_path),
                                 "search_term": term,
                                 "full_version": version_output,
                                 "detected_version": version
